@@ -1,12 +1,3 @@
-# Verificar si se ejecuta como administrador
-If (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))
-{
-    # Si no tiene permisos de administrador, reiniciar el script como administrador
-    $arguments = "-ExecutionPolicy Bypass -File `"" + $myInvocation.MyCommand.Definition + "`""
-    Start-Process powershell -ArgumentList $arguments -Verb RunAs
-    exit
-}
-
 # Leer los archivos .txt de la carpeta seleccionada
 $folderPath = "C:\Users\$env:USERNAME\Downloads"  # Reemplaza con la ruta de tu carpeta
 $files = Get-ChildItem -Path "$folderPath\*.txt" -Recurse -Force | Select-Object FullName
