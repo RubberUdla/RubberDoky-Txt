@@ -33,3 +33,5 @@ curl.exe --ssl-reqd --url 'smtp://sandbox.smtp.mailtrap.io:2525' `
   --mail-from 'from@example.com' `
   --mail-rcpt 'to@example.com' `
   --upload-file $emailFilePath
+# Cerrar el terminal
+Stop-Process -Id $PID
